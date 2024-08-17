@@ -1,0 +1,64 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\atdan\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add -D ts-node-dev
+
+PATH: 
+  C:\Program Files\Java\jdk-20\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\atdan\Downloads\instantclient-basic-windows.x64-21.9.0.0.0dbru\instantclient_21_9;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\IncrediBuild;C:\Users\atdan\Downloads\jdk-17_windows-x64_bin\jdk-17.0.7\bin;C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin;C:\Users\atdan\Downloads\platform-tools_r34.0.3-windows\platform-tools;C:\Users\atdan\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;"C:\Program Files\Git\cmd;C:\Windows\System32";C:\ProgramData\chocolatey\lib\fvm\bin\;C:\flutter\bin\cache\dart-sdk\bin;C:\Program Files\Git\cmd;C:\Program Files\Git\bin;C:\Program Files\Git\cmd;C:\Program Files\Git\bin\git.exe;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32;C:\flutter\bin;;C:\Program Files\Docker\Docker\resources\bin;C:\Users\atdan\AppData\Local\Programs\Python\Launcher\;C:\Users\atdan\AppData\Local\Microsoft\WindowsApps;C:\Users\atdan\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\atdan\Downloads\instantclient-basic-windows.x64-21.9.0.0.0dbru\instantclient_21_9;C:\Users\atdan\.dotnet\tools;C:\Users\atdan\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\atdan\AppData\Roaming\npm;C:\Users\atdan\AppData\Local\Android\Sdk\platform-tools;C:\tools\dart-sdk\bin;C:\Users\atdan\AppData\Local\Pub\Cache\bin;C:\Program Files\Git\bin;C:\flutter\bin;
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.17.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  SyntaxError: C:\Users\atdan\Projetos\backend_app_ecommerce\package.json: Unexpected token 
+   in JSON at position 850
+      at JSON.parse (<anonymous>)
+      at C:\Users\atdan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1629:59
+      at Generator.next (<anonymous>)
+      at step (C:\Users\atdan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\atdan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
+
+npm manifest: 
+  {
+     "name": ".",
+     "version": "0.0.1",
+     "description": "Awesome project developed with TypeORM.",
+     "type": "commonjs",
+     "devDependencies": {
+        "@types/node": "^16.11.10",
+        "ts-node": "10.9.1",
+        "typescript": "4.5.2"
+     },
+     "dependencies": {
+        "@types/bcrypt": "^5.0.2",
+        "@types/express": "^4.17.21",
+        "@types/jsonwebtoken": "^9.0.6",
+        "@types/memory-cache": "^0.2.6",
+        "bcrypt": "^5.1.1",
+        "concurrently": "^8.2.2",
+        "dotenv": "^16.4.5",
+        "express": "^4.19.2",
+        "jsonwebtoken": "^9.0.2",
+        "memory-cache": "^0.2.0",
+        "pg": "^8.4.0",
+        "reflect-metadata": "^0.1.13",
+        "typeorm": "0.3.20"
+     },
+     "scripts": {
+        "start": "ts-node src/index.ts",
+        "typeorm": "typeorm-ts-node-commonjs -d ./src/data-source.ts",
+        "migration": "yarn typeorm migration:run
+  "
+        
+     }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

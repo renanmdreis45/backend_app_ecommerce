@@ -5,7 +5,6 @@ import { Request, Response } from "express";
 import "reflect-metadata";
 dotenv.config();
 
-import { User } from "./entity/User";
 import { errorHandler } from "./middleware/error.middleware";
 import { userRouter } from "./routes/user.routes";
 
