@@ -6,15 +6,15 @@ import { encrypt } from "../helpers/helpers";
 export class AuthController {
     static async login(req: Request, res: Response) {
         try {
-            const {name, password} = req.body;
-            if(!name || !password) {
+            const {email, password} = req.body;
+            if(!email || !password) {
                 return res
                     .status(500)
                     .json({message: "name and password required"});
             }
 
             const userRepository = AppDataSource.getRepository(User);
-            const user = await userRepository.findOne({where: {name}});
+            const user = await userRepository.findOne({where: {email}});
 
             const isPasswordValid = encrypt.comparepassword(user.password, password);
             if(!user || !isPasswordValid) {
