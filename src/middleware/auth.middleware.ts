@@ -1,8 +1,7 @@
 import { NextFunction, Request, Response} from "express";
 import * as jwt from "jsonwebtoken";
 import * as dotenv from "dotenv";
-import { AppDataSource } from "../data-source";
-import { User } from "../entity/User";
+
 dotenv.config();
 
 export const authentication = (
@@ -25,16 +24,4 @@ export const authentication = (
     }
     req["currentUser"] = decode;
     next();
-}
-
-export const authorization = (roles: string[]) => {
-    return async (req: Request, res: Response, next: NextFunction) => {
-        const userRepo = AppDataSource.getRepository(User);
-        const user = await userRepo.findOne({
-            where: {id: req["currentUser"].id},
-        });
-        if(!roles.includes(user.role)) {
-            return res.status(403).json({message: "Forbidden"});
-        }
-    }
 }

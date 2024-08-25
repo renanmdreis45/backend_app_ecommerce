@@ -1,24 +1,22 @@
 import { AppDataSource } from "./data-source"
 import * as express from "express";
 import * as dotenv from "dotenv";
-import { Request, Response } from "express";
 import "reflect-metadata";
 dotenv.config();
 
 import { errorHandler } from "./middleware/error.middleware";
 import { userRouter } from "./routes/user.routes";
+import { purchaseRouter } from "./routes/purchase.routes";
 
 const app = express();
 app.use(express.json());
 app.use(errorHandler);
 
-const {PORT = 3000 } = process.env;
-app.use("/auth", userRouter);
+const {PORT} = process.env;
 
-app.get("*", (req: Request, res: Response) => {
-    res.status(505).json({ message: "Bad Request" });
-  });
-  
+app.use(userRouter);
+app.use(purchaseRouter);
+
   AppDataSource.initialize()
     .then(async () => {
       app.listen(PORT, () => {

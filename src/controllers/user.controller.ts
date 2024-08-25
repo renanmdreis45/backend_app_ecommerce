@@ -6,14 +6,14 @@ import * as cache from "memory-cache";
 
 export class UserController {
     static async signup(req: Request, res: Response) {
-        const {name, password, role} = req.body;
-
+        const {email, name, password} = req.body;
+        console.log(req.body);
         const encryptedPassword = await encrypt.encryptpass(password);
         const user = new User();
 
+        user.email = email;
         user.name = name;
         user.password = encryptedPassword;
-        user.role = role;
 
         const userRepository = AppDataSource.getRepository(User);
         await userRepository.save(user);

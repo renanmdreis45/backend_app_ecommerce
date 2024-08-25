@@ -1,25 +1,17 @@
 import * as express from "express";
-import { authentication, authorization} from "../middleware/auth.middleware";
+import { authentication} from "../middleware/auth.middleware";
 import { UserController } from "../controllers/user.controller";
 import { AuthController } from "../controllers/auth.controller";
 
-const Router = express.Router();
+const router = express.Router();
 
-Router.get(
+router.get(
     "/users",
     authentication,
-    authorization(["admin"]),
     UserController.getUsers
 );
 
-Router.get(
-    "/profile",
-    authentication,
-    authorization(["user", "admin"]),
-    AuthController.getProfile
-);
+router.post("/signup", UserController.signup);
+router.post("/login", AuthController.login);
 
-Router.post("/signup", UserController.signup);
-Router.post("/login", AuthController.login);
-
-export {Router as userRouter};
+export {router as userRouter};

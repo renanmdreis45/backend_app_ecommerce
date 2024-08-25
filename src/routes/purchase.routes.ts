@@ -1,13 +1,13 @@
 import * as express from "express";
 import { PurchaseController } from "../controllers/purchase.controller";
 
-const Router = express.Router();
+const router = express.Router();
 
-Router.get(
+router.get(
     "/purchases",
     PurchaseController.getPurchases,
 );
 
-Router.post("/purchase", PurchaseController.buyProduct);
+router.post("/purchase", PurchaseController.buyProduct);
 
-export { Router as userRouter };
+export { router as purchaseRouter };

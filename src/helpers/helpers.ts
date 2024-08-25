@@ -4,7 +4,7 @@ import * as dotenv from "dotenv";
 import { payload } from "../dto/createuser.dto";
 
 dotenv.config();
-const {JWT_SECRET = ""} = process.env;
+const {JWT_KEY} = process.env;
 export class encrypt {
     static async encryptpass(password: string) {
         return bcrypt.hashSync(password, 12);
@@ -14,6 +14,6 @@ export class encrypt {
     }
 
     static generateToken(payload: payload) {
-        return jwt.sign(payload, JWT_SECRET, {expiresIn: "1d"});
+        return jwt.sign(payload, JWT_KEY, {expiresIn: "1d"});
     }
 }
