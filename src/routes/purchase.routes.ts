@@ -1,16 +1,13 @@
 import * as express from "express";
-import { authentication, authorization } from "../middleware/auth.middleware";
-import { UserController } from "../controllers/user.controller";
-import { AuthController } from "../controllers/auth.controller";
+import { PurchaseController } from "../controllers/purchase.controller";
 
 const Router = express.Router();
 
 Router.get(
     "/purchases",
-    UserController.getUsers
+    PurchaseController.getPurchases,
 );
 
-Router.post("/signup", UserController.signup);
-Router.post("/login", AuthController.login);
+Router.post("/purchase", PurchaseController.buyProduct);
 
 export { Router as userRouter };
