@@ -6,6 +6,7 @@ import { encrypt } from "../helpers/helpers";
 export class AuthController {
     static async login(req: Request, res: Response) {
         try {
+            console.log(req.body);
             const {email, password} = req.body;
             if(!email || !password) {
                 return res
@@ -21,7 +22,7 @@ export class AuthController {
                 return res.status(404).json({message: "User not found"});
             }
             const token = encrypt.generateToken({id: user.id});
-
+            console.log(user);
             return res.status(200).json({message: "Login successful", user, token});
         } catch (error) {
             console.error(error);

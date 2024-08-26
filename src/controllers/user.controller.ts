@@ -19,7 +19,7 @@ export class UserController {
         await userRepository.save(user);
 
         const token = encrypt.generateToken({id: user.id});
-
+        
         return res
             .status(200)
             .json({message: "User created successfully", token, user});

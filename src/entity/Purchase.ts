@@ -33,6 +33,9 @@ export class Purchase {
     @Column({ nullable: false})
     department: string;
 
+    @Column({ nullable: false})
+    userName: string;
+
     @CreateDateColumn()
     createdAt: Date;
 }

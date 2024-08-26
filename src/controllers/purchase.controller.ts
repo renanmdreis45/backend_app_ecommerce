@@ -7,7 +7,7 @@ import { Purchase } from "../entity/Purchase";
 
 export class PurchaseController {
     static async buyProduct(req: Request, res: Response) {
-        const { productId, name, description, category, price, quantity, material, department, } = req.body;
+        const { productId, name, description, category, price, quantity, material, department, userName } = req.body;
 
         const purchase = new Purchase();
 
@@ -18,17 +18,18 @@ export class PurchaseController {
         purchase.price = price;
         purchase.material = material;
         purchase.department = department;
+        purchase.userName = userName;
 
         const purchaseRepository = AppDataSource.getRepository(Purchase);
         
-        const existentProduct = purchaseRepository.findOne({
+        const existentProduct = await purchaseRepository.findOne({
             where: {
                 productId: productId,
             }
         });
 
         if(existentProduct) {
-            purchase.quantity = quantity + 1;
+            purchase.quantity = quantity + existentProduct.quantity;
         } else {
             purchase.quantity = quantity;
         }
