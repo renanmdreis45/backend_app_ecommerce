@@ -8,9 +8,8 @@ import { Purchase } from "../entity/Purchase";
 export class PurchaseController {
     static async buyProduct(req: Request, res: Response) {
         const { productId, name, description, category, price, quantity, material, department, userName } = req.body;
-
         const purchase = new Purchase();
-
+        
         purchase.productId = productId;
         purchase.name = name;
         purchase.description = description;

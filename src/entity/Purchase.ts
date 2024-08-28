@@ -22,7 +22,7 @@ export class Purchase {
     category: string;
 
     @Column({ nullable: false })
-    price: number;
+    price: string;
 
     @Column({ nullable: false })
     quantity: number;
